@@ -1,7 +1,6 @@
 import { getToken } from 'next-auth/jwt';
 import { NextResponse, NextRequest } from 'next/server'
 export { default } from 'next-auth/middleware';
-// This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
     const token = await getToken({req:request})
     if (token && (
@@ -17,5 +16,5 @@ export async function middleware(request: NextRequest) {
 }
  
 export const config = {
-  matcher: ['/dashboard/:path*', '/sign-in', '/sign-up', '/', '/verify/:path*'],
+  matcher: ['/dashboard/:path*', '/signin', '/signup', '/', '/verify/:path*'],
 };
