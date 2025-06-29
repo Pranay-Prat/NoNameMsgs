@@ -28,6 +28,7 @@ export const authOptions: NextAuthOptions = {
                     if(!user) {
                         throw new Error("No user found with the given credentials");
                     }
+                    //TODO : redirect to verification page
                     if(!user.isVerified) {
                         throw new Error("User is not verified. Please verify your account.");
                     }

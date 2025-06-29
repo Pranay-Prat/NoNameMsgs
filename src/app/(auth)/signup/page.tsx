@@ -11,10 +11,10 @@ import { signUpSchema } from "@/schemas/signUpSchema"
 import axios,{AxiosError} from "axios"
 import { ApiResponse } from "@/types/ApiResponse"
 import {LoaderCircle} from "lucide-react"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-const page = () => {
+const Signup = () => {
   const [username, setUsername] = useState("")
   const [usernameMessage, setUsernameMessage] = useState("")
   const [isCheckingUsername, setIsCheckingUsername] = useState(false)
@@ -37,7 +37,6 @@ const page = () => {
         try {
           const response=await axios.get(`/api/check-username-unique?username=${username}`)
           setUsernameMessage(response.data.message)
-
         } catch (error) {
           const axiosError = error as AxiosError<ApiResponse>
           console.error("Error checking username:", error)
@@ -152,4 +151,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Signup
