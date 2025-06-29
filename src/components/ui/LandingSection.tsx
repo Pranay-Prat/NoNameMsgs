@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { LampContainer } from "../ui/lamp";
 import Link from "next/link";
 export function LandingSection() {
@@ -27,7 +27,7 @@ export function LandingSection() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="mt-8 cursor-pointer text-center text-4xl font-extrabold tracking-tight md:text-7xl"
+          className="mt-6 cursor-pointer text-center text-4xl font-extrabold tracking-tight md:text-7xl"
         >
           No Name <br /> Msgs
         </motion.h1>
