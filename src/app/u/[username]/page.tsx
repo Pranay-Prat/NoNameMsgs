@@ -105,7 +105,7 @@ const SendMessage = () => {
             <Controller
               name="content"
               control={form.control}
-              render={({ field, fieldState }) => (
+              render={() => (
                 <FormItem>
                   <FormLabel className="text-black text-center block mt-12 mb-2">
                     Write a short anonymous message

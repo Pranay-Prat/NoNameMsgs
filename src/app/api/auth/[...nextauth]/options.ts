@@ -13,6 +13,7 @@ export const authOptions: NextAuthOptions = {
                 email: { label: "Email", type: "text", placeholder: "Enter your email" },
                 password: { label: "Password", type: "password", placeholder: "Enter your password" }
             },
+            /* eslint-enable @typescript-eslint/no-explicit-any */
             async authorize(credentials: any): Promise<any> {
                 await dbConnect();
                 try {
@@ -28,7 +29,6 @@ export const authOptions: NextAuthOptions = {
                     if(!user) {
                         throw new Error("No user found with the given credentials");
                     }
-                    //TODO : redirect to verification page
                     if(!user.isVerified) {
                         throw new Error("Please verify your account before logging in.");
                     }
@@ -38,9 +38,10 @@ export const authOptions: NextAuthOptions = {
                     } else {
                         throw new Error('Incorrect password');
                     }
-                } catch (error: any) {
+                    
+                } catch (error) {
                     console.error("Error connecting to the database:", error);
-                    throw new Error(error);
+                    throw new Error(error instanceof Error ? error.message : String(error));
                     
                 }
             }

@@ -1,19 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { LampContainer } from "../ui/lamp";
+import { LampContainer } from "./ui/lamp";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
-import LinkBox from "../LinkBox"; // Adjust the import path as needed
+import LinkBox from "./LinkBox"; // Adjust the import path as needed
 
 export function LandingSection() {
-  const router = useRouter();
-  const { data: session } = useSession();
-  
-  const handleGetStarted = () => {
-    
-  }
+
   
   return (
     <LampContainer>

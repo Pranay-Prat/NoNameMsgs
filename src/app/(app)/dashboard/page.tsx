@@ -7,7 +7,6 @@ import axios, { AxiosError } from 'axios'
 import { toast } from 'sonner'
 import { Loader2, RefreshCcw } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { motion } from 'framer-motion'
 import MessageCard from '@/components/MessageCard'
 import Navbar from '@/components/Navbar'
 import { Button } from '@/components/ui/button'
@@ -52,7 +51,7 @@ const Dashboard = () => {
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>
       console.error(error)
-      toast.error("Failed to fetch accept message status")
+      toast.error(axiosError.response?.data.message || "Failed to fetch accept message status"  )
     } finally {
       setIsSwitchLoading(false)
     }

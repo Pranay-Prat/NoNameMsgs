@@ -35,7 +35,7 @@ const VerifyAccount = () => {
     } catch (error) {
       console.error("Error during verification:", error)
       const axiosError = error as AxiosError<ApiResponse>
-      toast.error("An error occurred while verifying your account.")
+      toast.error(axiosError.response?.data.message || "An error occurred while verifying your account.")
     }
   }
 
