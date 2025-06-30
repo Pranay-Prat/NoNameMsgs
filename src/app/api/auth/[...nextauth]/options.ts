@@ -30,11 +30,13 @@ export const authOptions: NextAuthOptions = {
                     }
                     //TODO : redirect to verification page
                     if(!user.isVerified) {
-                        throw new Error("User is not verified. Please verify your account.");
+                        throw new Error("Please verify your account before logging in.");
                     }
                     const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
-                    if(!isPasswordCorrect) {
-                        throw new Error("Incorrect password");
+                    if (isPasswordCorrect) {
+                        return user; 
+                    } else {
+                        throw new Error('Incorrect password');
                     }
                 } catch (error: any) {
                     console.error("Error connecting to the database:", error);
