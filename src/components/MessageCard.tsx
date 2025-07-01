@@ -20,7 +20,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Button } from './ui/button'
 import { X } from 'lucide-react'
 import { Message } from '@/model/User'
 import axios, { AxiosError } from 'axios'
