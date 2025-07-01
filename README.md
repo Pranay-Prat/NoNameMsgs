@@ -5,7 +5,7 @@ No Name Msgs is an anonymous messaging website designed for collecting honest fe
 This is a modern web application built with Next.js, TypeScript, and a modular folder structure. The project features authentication, messaging, and user verification functionalities, making it a great starting point for scalable web apps.
 
 ## Features
-- User authentication (sign up, sign in, email verification)
+- User authentication (sign up, sign in)
 - Messaging system (send, receive, delete messages)
 - Modular and scalable codebase
 - API routes for backend logic

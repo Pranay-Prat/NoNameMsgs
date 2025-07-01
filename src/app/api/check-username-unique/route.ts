@@ -23,10 +23,10 @@ export async function GET(request: Request) {
             })
         }
         const {username} = result.data;
-        const existingVerifieduser = await UserModel.findOne({
-            username, isVerified: true
+        const existinguser = await UserModel.findOne({
+            username
         })
-        if(existingVerifieduser){
+        if(existinguser){
             return Response.json({
                 success: false,
                 message: 'Username is already taken'

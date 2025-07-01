@@ -4,8 +4,8 @@ export { default } from 'next-auth/middleware';
 export async function middleware(request: NextRequest) {
     const token = await getToken({req:request})
     if (token && (
-        request.nextUrl.pathname.startsWith('/signin') || request.nextUrl.pathname.startsWith('/signup') || request.nextUrl.pathname.startsWith('/verify')
-    )){
+        request.nextUrl.pathname.startsWith('/signin') || request.nextUrl.pathname.startsWith('/signup')
+    )) {
     return NextResponse.redirect(new URL('/dashboard', request.url))
     }
     if (!token && (
@@ -16,5 +16,5 @@ export async function middleware(request: NextRequest) {
 }
  
 export const config = {
-  matcher: ['/dashboard/:path*', '/signin', '/signup', '/', '/verify/:path*'],
+  matcher: ['/dashboard/:path*', '/signin', '/signup', '/'],
 };

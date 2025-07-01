@@ -1,8 +1,5 @@
 // app/dashboard/loading.tsx
-"use client"
-
 import { Loader2 } from "lucide-react"
-import { motion } from "framer-motion"
 
 export default function Loading() {
   return (
@@ -16,18 +13,13 @@ export default function Loading() {
         }}
       />
 
-      {/* Animated Loader */}
-      <motion.div
-        className="flex items-center justify-center space-x-4 z-10"
-        initial={{ opacity: 0, y: "20%" }}
-        animate={{ opacity: 1, y: "0%" }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-      >
+      {/* Tailwind-based loader with fade-in effect */}
+      <div className="flex items-center justify-center space-x-4 z-10 opacity-0 animate-fade-in-up">
         <Loader2 className="h-8 w-8 animate-spin text-cyan-400" />
         <span className="text-lg md:text-xl font-medium text-cyan-100">
           Loading Dashboard...
         </span>
-      </motion.div>
+      </div>
     </div>
   )
 }
