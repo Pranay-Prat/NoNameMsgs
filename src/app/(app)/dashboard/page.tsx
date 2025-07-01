@@ -95,13 +95,14 @@ const Dashboard = () => {
   }
 
   if (status === "loading") {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <Loader2 className="h-6 w-6 animate-spin" />
-        <span className="ml-2">Loading dashboard...</span>
-      </div>
-    )
-  }
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <Loader2 className="h-6 w-6 animate-spin" />
+      <span className="ml-2">Loading dashboard...</span>
+    </div>
+  )
+}
+
 
   if (!session?.user) {
     return (

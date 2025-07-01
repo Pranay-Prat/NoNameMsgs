@@ -25,7 +25,7 @@ import { X } from 'lucide-react'
 import { Message } from '@/model/User'
 import axios, { AxiosError } from 'axios'
 import { ApiResponse } from '@/types/ApiResponse'
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion' // Ensure motion is imported
 
 type MessageCardProps = {
   message: Message;
@@ -57,23 +57,35 @@ const MessageCard = ({ message, onMessageDelete }: MessageCardProps) => {
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.2 }}
     >
-      <Card className="relative min-h-[140px] flex flex-col justify-between p-3">
+      {/* Reduced padding (p-3 to p-2) and min-height (min-h-[140px] to min-h-[120px]) */}
+      <Card className="relative min-h-[120px] flex flex-col justify-between p-2">
         <CardHeader className="p-0">
-          <CardTitle className="text-base">{message.content}</CardTitle>
+          {/* Slightly reduced title font size (text-base to text-sm) */}
+          <CardTitle className="text-base font-bold">{message.content}</CardTitle>
         </CardHeader>
 
         <CardContent className="flex-1 p-0" />
 
         <CardFooter className="flex items-center justify-between p-0 mt-2">
-          <span className="text-xs text-muted-foreground">
+          {/* Slightly reduced timestamp font size (text-xs to text-[0.7rem]) */}
+          <span className="text-[0.7rem] text-muted-foreground">
             {dayjs(message.createdAt).format('MMM D, YYYY h:mm A')}
           </span>
 
           <AlertDialog>
             <AlertDialogTrigger asChild>
-              <Button size="icon" variant="destructive">
+              {/* Apply motion props directly to the Button for the cross icon */}
+              <motion.button
+                type="button" // Important: Specify type="button" to prevent form submission if this button is inside a form
+             
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-destructive text-destructive-foreground hover:bg-destructive/90 h-8 w-8" // Replicated Button's destructive variant styles
+                initial={false} // Prevents initial animation if not desired
+                whileHover={{ scale: 1.1, rotate: 90 }} // Scale up and rotate on hover
+                whileTap={{ scale: 0.9 }} // Shrink slightly on tap
+                transition={{ duration: 0.15 }}
+              >
                 <X className="w-4 h-4" />
-              </Button>
+              </motion.button>
             </AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader>
